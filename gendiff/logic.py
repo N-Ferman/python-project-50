@@ -1,5 +1,6 @@
 import json
 
+
 def generate_diff(file1, file2):
     with open(file1) as f1, open(file2) as f2:
         data1 = json.load(f1)
