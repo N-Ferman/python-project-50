@@ -1,12 +1,12 @@
 def to_str(value):
-    if isinstance(value, dict):
+    if isinstance(value, (dict, list)):
         return "[complex value]"
     if isinstance(value, bool):
         return str(value).lower()
     if value is None:
         return "null"
-    if isinstance(value, int):
-        return str(value) 
+    if isinstance(value, (int, float)):
+        return str(value)
     return f"'{value}'"
 
 def format_plain(diff_tree):
@@ -17,7 +17,9 @@ def format_plain(diff_tree):
             node_type = item['type']
 
             if node_type == 'nested':
-                lines.append(walk(item['children'], f"{current_path}."))
+                nested = walk(item['children'], f"{current_path}.")
+                if nested:
+                    lines.append(nested)
             
             elif node_type == 'added':
                 val = to_str(item['value'])

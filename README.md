@@ -17,3 +17,10 @@
   [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=N-Ferman_python-project-50&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=N-Ferman_python-project-50)
 
   https://asciinema.org/connect/015f7264-9abe-40dd-96ff-73f04ea68111 
+
+  https://asciinema.org/a/kGVNu5NU2OImdNYc
+
+  https://asciinema.org/a/UeIE6EFOupiWMSYo
+
+  
+
