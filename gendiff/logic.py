@@ -1,6 +1,8 @@
 import os
 
 from gendiff.parser import parse
+from gendiff.tree import build_diff_tree
+from gendiff.formatters.stylish import format_stylish
 
 
 def get_data(file_path):
@@ -11,28 +13,16 @@ def get_data(file_path):
     return parse(content, format_name)
 
 
-def generate_diff(file_path1, file_path2):
-    data1 = get_data(file_path1)
-    data2 = get_data(file_path2)
-    
-    diff = {}
-    keys = sorted(set(data1.keys()) | set(data2.keys()))
-    
-    for key in keys:
-        if key not in data1:
-            diff[key] = {'status': 'added', 'value': data2[key]}
-        elif key not in data2:
-            diff[key] = {'status': 'removed', 'value': data1[key]}
-        elif data1[key] == data2[key]:
-            diff[key] = {'status': 'unchanged', 'value': data1[key]}
-        else:
-            diff[key] = {
-                'status': 'changed',
-                'old_value': data1[key],
-                'new_value': data2[key]
-            }
+def generate_diff(file_path1, file_path2, format_name='stylish'):
+    data1 = parse(file_path1)
+    data2 = parse(file_path2)
+    diff_tree = build_diff_tree(data1, data2)
 
-    return format_diff(diff)
+    if format_name == 'stylish':
+        return format_stylish(diff_tree)
+    raise ValueError(f"Unknown format: {format_name}")
+
+   
 
 
 def to_str(value):
@@ -59,3 +49,26 @@ def format_diff(diff):
             
     lines.append('}')
     return '\n'.join(lines)
+
+def build_diff_tree(data1, data2):
+    keys = sorted(set(data1.keys()) | set(data2.keys()))
+    tree = []
+
+    for key in keys:
+        if key not in data1:
+            tree.append({'key': key, 'type': 'added', 'value': data2[key]})
+        elif key not in data2:
+            tree.append({'key': key, 'type': 'removed', 'value': data1[key]})
+        elif isinstance(data1[key], dict) and isinstance(data2[key], dict):
+            children = build_diff_tree(data1[key], data2[key])
+            tree.append({'key': key, 'type': 'nested', 'children': children})
+        elif data1[key] == data2[key]:
+            tree.append({'key': key, 'type': 'unchanged', 'value': data1[key]})
+        else:
+            tree.append({
+                'key': key,
+                'type': 'changed',
+                'old_value': data1[key],
+                'new_value': data2[key]
+            })
+    return tree
