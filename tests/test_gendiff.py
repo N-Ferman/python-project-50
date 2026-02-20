@@ -1,16 +1,11 @@
 from pathlib import Path
-
-import pytest
-
 from gendiff import generate_diff
-
+import pytest
 
 FIXTURES_DIR = Path(__file__).parent / 'fixtures'
 
-
 def read_fixture(file_name: str) -> str:
     return (FIXTURES_DIR / file_name).read_text().strip()
-
 
 @pytest.mark.parametrize(
     'file1,file2,format_name,expected_fixture',
@@ -19,8 +14,11 @@ def read_fixture(file_name: str) -> str:
         ('file1.yml', 'file2.yml', 'stylish', 'expected_stylish.txt'),
         ('file1.json', 'file2.json', 'plain', 'expected_plain.txt'),
         ('file1.yml', 'file2.yml', 'plain', 'expected_plain.txt'),
+        ('file1.json', 'file2.json', 'json', 'expected_json.txt'),
+        ('file1.yml', 'file2.yml', 'json', 'expected_json.txt'),
     ],
 )
+
 def test_generate_diff(file1, file2, format_name, expected_fixture):
     path1 = str(FIXTURES_DIR / file1)
     path2 = str(FIXTURES_DIR / file2)
