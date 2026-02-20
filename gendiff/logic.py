@@ -18,9 +18,8 @@ def generate_diff(file_path1, file_path2, format_name='stylish'):
     data2 = parse(file_path2)
     diff_tree = build_diff_tree(data1, data2)
 
-    if format_name == 'stylish':
-        return format_stylish(diff_tree)
-    raise ValueError(f"Unknown format: {format_name}")
+    selected_formatter = get_formatter(format_name)
+    return selected_formatter(diff_tree)
 
    
 
