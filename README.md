@@ -1,8 +1,7 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/N-Ferman/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/N-Ferman/python-project-50/actions)
 
-
-  https://asciinema.org/connect/015f7264-9abe-40dd-96ff-73f04ea68111 
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=N-Ferman_python-project-50)](https://sonarcloud.io/summary/new_code?id=N-Ferman_python-project-50)
 
   [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=N-Ferman_python-project-50&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=N-Ferman_python-project-50)
 
@@ -16,7 +15,33 @@
 
   [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=N-Ferman_python-project-50&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=N-Ferman_python-project-50)
 
-  https://asciinema.org/connect/015f7264-9abe-40dd-96ff-73f04ea68111 
+Gendiff is a command-line utility that compares two configuration files and shows the difference between them.
+
+Supported formats:
+JSON
+YAML
+
+Available output formats:
+stylish (default)
+plain
+json
+
+Installation
+
+Clone the repository and install the package in editable mode:
+
+git clone https://github.com/N-Ferman/python-project-50.git
+cd python-project-50
+python -m pip install --user -e .
+
+Usage
+Default format (stylish)
+gendiff file1.json file2.json
+Plain format
+gendiff --format plain file1.json file2.json
+JSON format
+gendiff --format json file1.json file2.json
+
 
   https://asciinema.org/a/kGVNu5NU2OImdNYc
 

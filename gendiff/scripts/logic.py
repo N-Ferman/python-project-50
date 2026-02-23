@@ -1,7 +1,6 @@
 import os
 
-from gendiff.parser import parse
-
+from .parser import parse
 from gendiff.formatters import get_formatter
 
 def get_data(file_path):

@@ -2,7 +2,7 @@ from pathlib import Path
 from gendiff import generate_diff
 import pytest
 
-FIXTURES_DIR = Path(__file__).parent / 'fixtures'
+FIXTURES_DIR = Path(__file__).parent / 'test_data'
 
 def read_fixture(file_name: str) -> str:
     return (FIXTURES_DIR / file_name).read_text().strip()

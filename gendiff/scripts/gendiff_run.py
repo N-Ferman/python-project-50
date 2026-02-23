@@ -1,5 +1,5 @@
 import argparse
-from gendiff import generate_diff
+from gendiff.scripts.logic import generate_diff
 
 def main():
     parser = argparse.ArgumentParser(description='...')
