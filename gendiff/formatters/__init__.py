@@ -5,10 +5,10 @@ from .json import format_json
 
 
 def get_formatter(format_name):
-    if format_name == 'stylish':
+    if format_name == "stylish":
         return format_stylish
-    if format_name == 'plain':
+    if format_name == "plain":
         return format_plain
-    if format_name == 'json':
+    if format_name == "json":
         return format_json
     raise ValueError(f"Unknown format: {format_name}")

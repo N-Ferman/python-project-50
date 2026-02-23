@@ -15,24 +15,29 @@ def format_plain(diff_tree):
         lines = []
         for item in node:
             current_path = f"{path}{item['key']}"
-            node_type = item['type']
+            node_type = item["type"]
 
-            if node_type == 'nested':
-                nested = walk(item['children'], f"{current_path}.")
+            if node_type == "nested":
+                nested = walk(item["children"], f"{current_path}.")
                 if nested:
                     lines.append(nested)
-            
-            elif node_type == 'added':
-                val = to_str(item['value'])
-                lines.append(f"Property '{current_path}' was added with value: {val}")
-            
-            elif node_type == 'removed':
+
+            elif node_type == "added":
+                val = to_str(item["value"])
+                lines.append(
+                    f"Property '{current_path}' was added with value: {val}"
+                )
+
+            elif node_type == "removed":
                 lines.append(f"Property '{current_path}' was removed")
-            
-            elif node_type == 'changed':
-                val1 = to_str(item['old_value'])
-                val2 = to_str(item['new_value'])
-                lines.append(f"Property '{current_path}' was updated. From {val1} to {val2}")
+
+            elif node_type == "changed":
+                val1 = to_str(item["old_value"])
+                val2 = to_str(item["new_value"])
+                lines.append(
+                    f"Property '{current_path}'"
+                    f"was updated. From {val1} to {val2}"
+                )
         return "\n".join(lines)
 
     return walk(diff_tree, "")
