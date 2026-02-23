@@ -1,6 +1,6 @@
 from pathlib import Path
-from gendiff import generate_diff
 import pytest
+from gendiff import generate_diff
 
 FIXTURES_DIR = Path(__file__).parent / "test_data"
 

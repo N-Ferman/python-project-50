@@ -35,7 +35,7 @@ def format_plain(diff_tree):
                 val1 = to_str(item["old_value"])
                 val2 = to_str(item["new_value"])
                 lines.append(
-                    f"Property '{current_path}'"
+                    f"Property '{current_path}' "
                     f"was updated. From {val1} to {val2}"
                 )
         return "\n".join(lines)
