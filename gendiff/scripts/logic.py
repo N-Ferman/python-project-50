@@ -1,7 +1,9 @@
 import os
 
-from .parser import parse
 from gendiff.formatters import get_formatter
+
+from .parser import parse
+
 
 def get_data(file_path):
     _, extension = os.path.splitext(file_path)
@@ -10,12 +12,14 @@ def get_data(file_path):
         content = f.read()
     return parse(content, format_name)
 
+
 def generate_diff(file_path1, file_path2, format_name='stylish'):
     data1 = get_data(file_path1)
     data2 = get_data(file_path2)
     diff_tree = build_diff_tree(data1, data2)
     formatter = get_formatter(format_name)
     return formatter(diff_tree)
+
 
 def build_diff_tree(data1, data2):
     keys = sorted(set(data1.keys()) | set(data2.keys()))

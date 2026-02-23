@@ -9,6 +9,7 @@ def to_str(value):
         return str(value)
     return f"'{value}'"
 
+
 def format_plain(diff_tree):
     def walk(node, path):
         lines = []
