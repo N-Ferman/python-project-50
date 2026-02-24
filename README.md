@@ -5,7 +5,7 @@
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=N-Ferman_python-project-50&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=N-Ferman_python-project-50)
 
-  [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=N-Ferman_python-project-50&metric=bugs)](https://sonarcloud.io/summary/new_code?id=N-Ferman_python-project-50)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=N-Ferman_python-project-50&metric=bugs)](https://sonarcloud.io/summary/new_code?id=N-Ferman_python-project-50)
 
   [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=N-Ferman_python-project-50&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=N-Ferman_python-project-50)
 
