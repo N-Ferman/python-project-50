@@ -3,6 +3,6 @@ lint:
 test-coverage:
 	uv run pytest --cov=gendiff --cov-report=xml:coverage.xml
 test:
-	uv run pytest tests
+	uv run pytest
 install:
 	uv run pip install -e .
