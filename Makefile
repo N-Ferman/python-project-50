@@ -6,3 +6,4 @@ test:
 	uv run pytest
 install:
 	uv run pip install -e .
+check: lint test-coverage
