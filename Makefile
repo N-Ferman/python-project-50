@@ -5,4 +5,4 @@ test-coverage:
 test:
 	uv run pytest tests
 install:
-	uv pip install -e .
+	uv run pip install -e .
